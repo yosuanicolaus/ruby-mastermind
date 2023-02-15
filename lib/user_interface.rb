@@ -12,4 +12,15 @@ module UI
     end
     input.split('').map { |ch| ch.to_i }
   end
+
+  # @param [Decoder] decoder
+  def self.display_decoder(decoder)
+    display = "+---+---+---+---+   +---+---+---+---+\n"
+    12.times do |i|
+      display += "| #{decoder.codes[i].join(' | ')} |   "
+      display += "| #{decoder.signals[i].join(' | ')} |"
+      display += "\n+---+---+---+---+   +---+---+---+---+\n"
+    end
+    puts display
+  end
 end
