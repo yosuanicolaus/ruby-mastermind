@@ -16,6 +16,18 @@ class Decoder
     code == @key
   end
 
+  def broke?
+    @signals[@turn] == [2, 2, 2, 2]
+  end
+
+  def end?
+    if @turn == 12
+      puts "the code was #{@key.inspect}"
+      true
+    end
+    false
+  end
+
   private
 
   # @param [Array<Integer>] code

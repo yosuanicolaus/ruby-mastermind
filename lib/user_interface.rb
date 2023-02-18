@@ -1,4 +1,10 @@
 module UI
+  def self.welcome
+    puts 'Welcome to Mastermind!'
+    puts 'Would you like to be the Codebreaker[b] or the Codemaster[m]? [b/m]'
+    gets.chomp[0].downcase
+  end
+
   def self.get_code
     puts 'Enter a 4 digit code: <0-5 - ex: 2450>'
     input = gets.chomp
