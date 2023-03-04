@@ -35,6 +35,8 @@ class Game
     @decoder.decode(code)
     # show the output
     UI.display_decoder(@decoder)
+    # TODO: temporary - display key
+    @decoder.debug_key
     # check if game is end
     return end_game(@player) if @decoder.broke?
     return end_game(@computer) if @decoder.end?
