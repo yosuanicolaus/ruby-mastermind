@@ -17,23 +17,16 @@ class Decoder
   end
 
   def broke?
-    @signals[@turn] == [2, 2, 2, 2]
+    @signals[@turn - 1] == [2, 2, 2, 2]
   end
 
   def end?
-    if @turn == 12
-      puts "the code was #{@key.inspect}"
-      true
-    end
-    false
-  end
-
-  def debug_key
-    p "key: #{@key}"
+    @turn == 12
   end
 
   private
 
+  # rubocop:disable Metrics/AbcSize
   def create_signal(code)
     signal_arr = [0, 0, 0, 0]
     temp_key = [*@key]
@@ -55,4 +48,5 @@ class Decoder
     end
     @signals[@turn] = signal_arr.shuffle
   end
+  # rubocop:enable Metrics/AbcSize
 end
